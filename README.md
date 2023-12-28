@@ -2,23 +2,26 @@
 
 This article explains how to bind a array collection in Blazor Chart Component.
 
+**Binding array collection in Blazor chart**
+
 [Blazor Chart](https://www.syncfusion.com/blazor-components/blazor-charts) provide the support to bind the value from a array collection to the data points. We need to take the value from the array using the index and then the returned value is bound.
 
-The below code example shows how to bind the first array element to the Blazor chart.
+The below code example shows how to bind array collection in the Blazor chart.
 
 **Index.razor**
 
 ```cshtml
 
-
 @using Syncfusion.Blazor.Charts
 
 <SfChart  Title="Inflation - Consumer Price">
+
     <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category">
         </ChartPrimaryXAxis>
     <ChartSeriesCollection>
         <ChartSeries DataSource="@ConsumerDetails" XName="X" YName="YValue" Type="ChartSeriesType.Column"></ChartSeries>
     </ChartSeriesCollection>
+
 </SfChart>
 
 @code {    
