@@ -1,0 +1,33 @@
+﻿@page "/"
+
+@using Syncfusion.Blazor.Charts
+
+<SfChart  Title="Inflation - Consumer Price">
+    <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category">
+        </ChartPrimaryXAxis>
+    <ChartSeriesCollection>
+        <ChartSeries DataSource="@ConsumerDetails" XName="X" YName="YValue" Type="ChartSeriesType.Column"></ChartSeries>
+    </ChartSeriesCollection>
+</SfChart>
+
+@code {    
+
+    public class ChartData
+    {   
+        public string X { get; set; }        
+        public double[] Y { get; set; }
+        public double YValue { get { return Y[0] ; } }
+    }
+
+    public List<ChartData> ConsumerDetails = new List<ChartData>    
+    {
+        new ChartData { X= "USA",  Y = new double[]{4,10} },
+        new ChartData { X= "GBR",  Y = new double[]{10,10} },
+        new ChartData { X= "CHN",  Y = new double[]{5,10} },
+        new ChartData { X= "UK",   Y = new double[]{4,10} },
+        new ChartData { X= "AUS",  Y = new double[]{6,10} },
+        new ChartData { X= "IND",  Y = new double[]{4,10} },
+        new ChartData { X= "DEN",  Y = new double[]{8,10} },
+        new ChartData { X= "MEX",  Y = new double[]{9,10} }
+    };    
+}
