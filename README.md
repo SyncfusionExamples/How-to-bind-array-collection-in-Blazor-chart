@@ -1,66 +1,66 @@
-# How-to-bind-array-collection-in-Blazor-chart
+# How to Bind Array Collection Values in Syncfusion Blazor Chart
 
-This article explains how to bind a array collection in Blazor Chart Component.
+## Overview
 
-**Binding array collection in Blazor chart**
+This sample demonstrates how to display array-based data in a Syncfusion [Blazor Charts](https://www.syncfusion.com/blazor-components/blazor-charts) component. The implementation uses a model that contains a `double[]` array and exposes a calculated property that returns a specific indexed value from that array.
 
-[Blazor Chart](https://www.syncfusion.com/blazor-components/blazor-charts) provide the support to bind the value from a array collection to the data points. We need to take the value from the array using the index and then the returned value is bound.
+This approach is useful when application data is stored in arrays or collections but chart series require a single numeric field for binding. The sample maps the calculated property to the chart series so that array elements can be rendered as chart points without restructuring the original data source.
 
-The below code example shows how to bind array collection in the Blazor chart.
+## Key Features
 
-**Index.razor**
+- Uses the `SfChart` component to render chart data.
+- Configures the primary X-axis through `ChartPrimaryXAxis`.
+- Sets `ValueType="Syncfusion.Blazor.Charts.ValueType.Category"` for categorical axis values.
+- Binds chart data through the `ChartSeries.DataSource` property.
+- Maps category values using `XName="X"`.
+- Maps array-derived numeric values using `YName="YValue"`.
+- Renders data with `Type="ChartSeriesType.Column"`.
+- Demonstrates a `ChartData` model containing:
+  - `string X`
+  - `double[] Y`
+  - `double YValue` computed property returning an indexed array value.
+- Uses a collection of `ChartData` objects as the chart data source.
 
-```cshtml
+## Prerequisites
 
-@using Syncfusion.Blazor.Charts
+- [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
+- [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet) compatible with the project's target framework
 
-<SfChart  Title="Inflation - Consumer Price">
+## How to Run the Project
 
-    <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category">
-        </ChartPrimaryXAxis>
-    <ChartSeriesCollection>
-        <ChartSeries DataSource="@ConsumerDetails" XName="X" YName="YValue" Type="ChartSeriesType.Column"></ChartSeries>
-    </ChartSeriesCollection>
+**Visual Studio 2022**
 
-</SfChart>
+1. Clone or download the repository.
+2. Open the project file from the `BlazorApp1` folder.
+3. Restore NuGet packages when prompted.
+4. Build the project.
+5. Run the application using `Ctrl+F5`.
 
-@code {    
+**Visual Studio Code**
 
-    public class ChartData
-    {   
-        public string X { get; set; }        
-        public double[] Y { get; set; }
-        public double YValue { get { return Y[0] ; } }
+1. Clone or download the repository.
+2. Open the repository folder in Visual Studio Code.
+3. Open the integrated terminal.
+4. Navigate to the project directory.
 
-    }
-
-    public List<ChartData> ConsumerDetails = new List<ChartData>    
-    {
-        new ChartData { X= "USA",  Y = new double[]{4,10} },
-        new ChartData { X= "GBR",  Y = new double[]{10,10} },
-        new ChartData { X= "CHN",  Y = new double[]{5,10} },
-        new ChartData { X= "UK",   Y = new double[]{4,10} },
-        new ChartData { X= "AUS",  Y = new double[]{6,10} },
-        new ChartData { X= "IND",  Y = new double[]{4,10} },
-        new ChartData { X= "DEN",  Y = new double[]{8,10} },
-        new ChartData { X= "MEX",  Y = new double[]{9,10} }
-    };    
-}
-
+```bash
+cd BlazorApp1
+dotnet restore
+dotnet run
 ```
 
-The following screenshot illustrate the output of the above code snippet.
+5. Open the local URL displayed in the terminal after the application starts.
 
-**Output:**
+## Project Structure
 
-![Array value in Blazor chart](array-value-in-chart.png)
+`BlazorApp1/Pages/Index.razor` - Main sample page containing the `SfChart` implementation, chart configuration, model definition, and data binding logic.
 
-**Conclusion**
+## Support and Feedback
 
-I hope you enjoyed learning how to bind value from array collection in Blazor Chart Component.
+- For general product questions, visit the [Syncfusion Community Forum](https://www.syncfusion.com/forums) or [Syncfusion Support](https://www.syncfusion.com/support).
+- To report an issue specific to this sample, open a GitHub issue in this repository.
+- Refer to the Syncfusion Blazor Chart documentation: https://help.syncfusion.com/chart-sdk/blazor/charts/getting-started
 
-You can refer to our [Blazor Chart feature tour](https://www.syncfusion.com/blazor-components/blazor-charts) page to know about its other groundbreaking feature representations and [documentation](https://blazor.syncfusion.com/documentation/chart/getting-started), and how to quickly get started for configuration specifications. You can also explore our [Blazor Chart example](https://blazor.syncfusion.com/demos/chart/line?theme=bootstrap5) to understand how to create and manipulate data.
+## License
 
-For current customers, you can check out our components from the [License and Downloads](https://www.syncfusion.com/sales/teamlicense) page. If you are new to Syncfusion, you can try our 30-day [free trial](https://www.syncfusion.com/downloads/blazor) to check out our other controls.
-
-If you have any queries or require clarifications, please let us know in the comments section below. You can also contact us through our [support forums](https://www.syncfusion.com/forums), [support portal](https://support.syncfusion.com/create), or [feedback portal](https://www.syncfusion.com/feedback/blazor-components?control=charts). We are always happy to assist you!
+This is a Syncfusion sample project provided to demonstrate product usage. Review the [Syncfusion license terms](https://www.syncfusion.com/sales/pricing?category=ui-components) before using Syncfusion components in your own applications.
