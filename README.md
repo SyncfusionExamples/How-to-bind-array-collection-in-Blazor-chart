@@ -1,6 +1,6 @@
 # How-to-bind-array-collection-in-Blazor-chart
 
-This article explains how to bind a array collection in Blazor Chart Component.
+This article explains how to bind a array collection in Blazor Chart Component. The sample targets **.NET 10** (Blazor Web App with interactive server rendering) and uses the latest Syncfusion Blazor package version.
 
 **Binding array collection in Blazor chart**
 
@@ -8,7 +8,7 @@ This article explains how to bind a array collection in Blazor Chart Component.
 
 The below code example shows how to bind array collection in the Blazor chart.
 
-**Index.razor**
+**Home.razor** (`Components/Pages/Home.razor`)
 
 ```cshtml
 
